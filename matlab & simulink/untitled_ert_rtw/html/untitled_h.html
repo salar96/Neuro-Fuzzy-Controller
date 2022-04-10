@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td>1</td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td>2</td><td><span class="ct"> * File: untitled.h</span></td></tr>
+<tr name="3" id="3">
+<td>3</td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td>4</td><td><span class="ct"> * Code generated for Simulink model 'untitled'.</span></td></tr>
+<tr name="5" id="5">
+<td>5</td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td>6</td><td><span class="ct"> * Model version                  : 1.1</span></td></tr>
+<tr name="7" id="7">
+<td>7</td><td><span class="ct"> * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016</span></td></tr>
+<tr name="8" id="8">
+<td>8</td><td><span class="ct"> * C/C++ source code generated on : Sun Feb 02 10:01:47 2020</span></td></tr>
+<tr name="9" id="9">
+<td>9</td><td><span class="ct"> *</span></td></tr>
+<tr name="10" id="10">
+<td>10</td><td><span class="ct"> * Target selection: ert.tlc</span></td></tr>
+<tr name="11" id="11">
+<td>11</td><td><span class="ct"> * Embedded hardware selection: Atmel-&gt;AVR</span></td></tr>
+<tr name="12" id="12">
+<td>12</td><td><span class="ct"> * Code generation objectives: Unspecified</span></td></tr>
+<tr name="13" id="13">
+<td>13</td><td><span class="ct"> * Validation result: Not run</span></td></tr>
+<tr name="14" id="14">
+<td>14</td><td><span class="ct"> */</span></td></tr>
+<tr name="15" id="15">
+<td>15</td><td></td></tr>
+<tr name="16" id="16">
+<td>16</td><td><span class="pp">#ifndef</span> <a id="16c9" class="tk">RTW_HEADER_untitled_h_</a></td></tr>
+<tr name="17" id="17">
+<td>17</td><td><span class="pp">#define</span> <a id="17c9" class="tk">RTW_HEADER_untitled_h_</a></td></tr>
+<tr name="18" id="18">
+<td>18</td><td><span class="pp">#include &lt;stddef.h&gt;</span></td></tr>
+<tr name="19" id="19">
+<td>19</td><td><span class="pp">#ifndef</span> <a id="19c9" class="tk">untitled_COMMON_INCLUDES_</a></td></tr>
+<tr name="20" id="20">
+<td>20</td><td><span class="pp"># define</span> <a id="20c10" class="tk">untitled_COMMON_INCLUDES_</a></td></tr>
+<tr name="21" id="21">
+<td>21</td><td><span class="pp">#include "rtwtypes.h"</span></td></tr>
+<tr name="22" id="22">
+<td>22</td><td><span class="pp">#include "rtw_continuous.h"</span></td></tr>
+<tr name="23" id="23">
+<td>23</td><td><span class="pp">#include "rtw_solver.h"</span></td></tr>
+<tr name="24" id="24">
+<td>24</td><td><span class="pp">#include "arduino_analoginput_lct.h"</span></td></tr>
+<tr name="25" id="25">
+<td>25</td><td><span class="pp">#endif</span>                                 <span class="ct">/* untitled_COMMON_INCLUDES_ */</span></td></tr>
+<tr name="26" id="26">
+<td>26</td><td></td></tr>
+<tr name="27" id="27">
+<td>27</td><td><span class="pp">#include "untitled_types.h"</span></td></tr>
+<tr name="28" id="28">
+<td>28</td><td><span class="pp">#include "MW_target_hardware_resources.h"</span></td></tr>
+<tr name="29" id="29">
+<td>29</td><td></td></tr>
+<tr name="30" id="30">
+<td>30</td><td><span class="ct">/* Macros for accessing real-time model data structure */</span></td></tr>
+<tr name="31" id="31">
+<td>31</td><td><span class="pp">#ifndef</span> <a id="31c9" class="tk">rtmGetErrorStatus</a></td></tr>
+<tr name="32" id="32">
+<td>32</td><td><span class="pp"># define</span> <a id="32c10" class="tk">rtmGetErrorStatus</a>(<a id="32c28" class="tk">rtm</a>)        ((<a id="32c42" class="tk">rtm</a>)-&gt;<a id="32c48" class="tk">errorStatus</a>)</td></tr>
+<tr name="33" id="33">
+<td>33</td><td><span class="pp">#endif</span></td></tr>
+<tr name="34" id="34">
+<td>34</td><td></td></tr>
+<tr name="35" id="35">
+<td>35</td><td><span class="pp">#ifndef</span> <a id="35c9" class="tk">rtmSetErrorStatus</a></td></tr>
+<tr name="36" id="36">
+<td>36</td><td><span class="pp"># define</span> <a id="36c10" class="tk">rtmSetErrorStatus</a>(<a id="36c28" class="tk">rtm</a>, <a id="36c33" class="tk">val</a>)   ((<a id="36c42" class="tk">rtm</a>)-&gt;<a id="36c48" class="tk">errorStatus</a> = (<a id="36c63" class="tk">val</a>))</td></tr>
+<tr name="37" id="37">
+<td>37</td><td><span class="pp">#endif</span></td></tr>
+<tr name="38" id="38">
+<td>38</td><td></td></tr>
+<tr name="39" id="39">
+<td>39</td><td><span class="ct">/* Parameters (auto storage) */</span></td></tr>
+<tr name="40" id="40">
+<td>40</td><td><span class="kw">struct</span> <a id="40c8" class="tk">P_untitled_T_</a> <span class="br">{</span></td></tr>
+<tr name="41" id="41">
+<td>41</td><td>  <a id="41c3" class="tk">uint32_T</a> <a id="41c12" class="tk">AnalogInput_p1</a>;             <span class="ct">/* Computed Parameter: AnalogInput_p1</span></td></tr>
+<tr name="42" id="42">
+<td>42</td><td><span class="ct">                                        * Referenced by: '<a class="ct blk" blk_line="42">&lt;Root&gt;/Analog Input</a>'</span></td></tr>
+<tr name="43" id="43">
+<td>43</td><td><span class="ct">                                        */</span></td></tr>
+<tr name="44" id="44">
+<td>44</td><td><span class="br">}</span>;</td></tr>
+<tr name="45" id="45">
+<td>45</td><td></td></tr>
+<tr name="46" id="46">
+<td>46</td><td><span class="ct">/* Real-time Model Data Structure */</span></td></tr>
+<tr name="47" id="47">
+<td>47</td><td><span class="kw">struct</span> <a id="47c8" class="tk">tag_RTM_untitled_T</a> <span class="br">{</span></td></tr>
+<tr name="48" id="48">
+<td>48</td><td>  <span class="kw">const</span> <a id="48c9" class="tk">char_T</a> <a id="48c16" class="tk">*</a><a id="48c17" class="tk">errorStatus</a>;</td></tr>
+<tr name="49" id="49">
+<td>49</td><td><span class="br">}</span>;</td></tr>
+<tr name="50" id="50">
+<td>50</td><td></td></tr>
+<tr name="51" id="51">
+<td>51</td><td><span class="ct">/* Block parameters (auto storage) */</span></td></tr>
+<tr name="52" id="52">
+<td>52</td><td><span class="kw">extern</span> <a id="52c8" class="tk">P_untitled_T</a> <a id="52c21" class="tk">untitled_P</a>;</td></tr>
+<tr name="53" id="53">
+<td>53</td><td></td></tr>
+<tr name="54" id="54">
+<td>54</td><td><span class="ct">/* Model entry point functions */</span></td></tr>
+<tr name="55" id="55">
+<td>55</td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="55c13" class="tk">untitled_initialize</a>(<span class="kw">void</span>);</td></tr>
+<tr name="56" id="56">
+<td>56</td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="56c13" class="tk">untitled_step</a>(<span class="kw">void</span>);</td></tr>
+<tr name="57" id="57">
+<td>57</td><td><span class="kw">extern</span> <span class="kw">void</span> <a id="57c13" class="tk">untitled_terminate</a>(<span class="kw">void</span>);</td></tr>
+<tr name="58" id="58">
+<td>58</td><td></td></tr>
+<tr name="59" id="59">
+<td>59</td><td><span class="ct">/* Real-time Model object */</span></td></tr>
+<tr name="60" id="60">
+<td>60</td><td><span class="kw">extern</span> <a id="60c8" class="tk">RT_MODEL_untitled_T</a> <a id="60c28" class="tk">*</a><span class="kw">const</span> <a id="60c35" class="tk">untitled_M</a>;</td></tr>
+<tr name="61" id="61">
+<td>61</td><td></td></tr>
+<tr name="62" id="62">
+<td>62</td><td><span class="ct">/*-</span></td></tr>
+<tr name="63" id="63">
+<td>63</td><td><span class="ct"> * These blocks were eliminated from the model due to optimizations:</span></td></tr>
+<tr name="64" id="64">
+<td>64</td><td><span class="ct"> *</span></td></tr>
+<tr name="65" id="65">
+<td>65</td><td><span class="ct"> * Block '<a class="ct blk" blk_line="65">&lt;Root&gt;/Display</a>' : Unused code path elimination</span></td></tr>
+<tr name="66" id="66">
+<td>66</td><td><span class="ct"> * Block '<a class="ct blk" blk_line="66">&lt;Root&gt;/Scope</a>' : Unused code path elimination</span></td></tr>
+<tr name="67" id="67">
+<td>67</td><td><span class="ct"> */</span></td></tr>
+<tr name="68" id="68">
+<td>68</td><td></td></tr>
+<tr name="69" id="69">
+<td>69</td><td><span class="ct">/*-</span></td></tr>
+<tr name="70" id="70">
+<td>70</td><td><span class="ct"> * The generated code includes comments that allow you to trace directly</span></td></tr>
+<tr name="71" id="71">
+<td>71</td><td><span class="ct"> * back to the appropriate location in the model.  The basic format</span></td></tr>
+<tr name="72" id="72">
+<td>72</td><td><span class="ct"> * is &lt;system&gt;/block_name, where system is the system number (uniquely</span></td></tr>
+<tr name="73" id="73">
+<td>73</td><td><span class="ct"> * assigned by Simulink) and block_name is the name of the block.</span></td></tr>
+<tr name="74" id="74">
+<td>74</td><td><span class="ct"> *</span></td></tr>
+<tr name="75" id="75">
+<td>75</td><td><span class="ct"> * Use the MATLAB hilite_system command to trace the generated code back</span></td></tr>
+<tr name="76" id="76">
+<td>76</td><td><span class="ct"> * to the model.  For example,</span></td></tr>
+<tr name="77" id="77">
+<td>77</td><td><span class="ct"> *</span></td></tr>
+<tr name="78" id="78">
+<td>78</td><td><span class="ct"> * hilite_system('<a class="ct blk" blk_line="78">&lt;S3&gt;</a>')    - opens system 3</span></td></tr>
+<tr name="79" id="79">
+<td>79</td><td><span class="ct"> * hilite_system('<a class="ct blk" blk_line="79">&lt;S3&gt;/Kp</a>') - opens and selects block Kp which resides in S3</span></td></tr>
+<tr name="80" id="80">
+<td>80</td><td><span class="ct"> *</span></td></tr>
+<tr name="81" id="81">
+<td>81</td><td><span class="ct"> * Here is the system hierarchy for this model</span></td></tr>
+<tr name="82" id="82">
+<td>82</td><td><span class="ct"> *</span></td></tr>
+<tr name="83" id="83">
+<td>83</td><td><span class="ct"> * '<a class="ct blk" blk_line="83">&lt;Root&gt;</a>' : 'untitled'</span></td></tr>
+<tr name="84" id="84">
+<td>84</td><td><span class="ct"> */</span></td></tr>
+<tr name="85" id="85">
+<td>85</td><td><span class="pp">#endif</span>                                 <span class="ct">/* RTW_HEADER_untitled_h_ */</span></td></tr>
+<tr name="86" id="86">
+<td>86</td><td></td></tr>
+<tr name="87" id="87">
+<td>87</td><td><span class="ct">/*</span></td></tr>
+<tr name="88" id="88">
+<td>88</td><td><span class="ct"> * File trailer for generated code.</span></td></tr>
+<tr name="89" id="89">
+<td>89</td><td><span class="ct"> *</span></td></tr>
+<tr name="90" id="90">
+<td>90</td><td><span class="ct"> * [EOF]</span></td></tr>
+<tr name="91" id="91">
+<td>91</td><td><span class="ct"> */</span></td></tr>
+<tr name="92" id="92">
+<td>92</td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

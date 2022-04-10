@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td>1</td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td>2</td><td><span class="ct"> * File: ert_main.c</span></td></tr>
+<tr name="3" id="3">
+<td>3</td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td>4</td><td><span class="ct"> * Code generated for Simulink model 'untitled'.</span></td></tr>
+<tr name="5" id="5">
+<td>5</td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td>6</td><td><span class="ct"> * Model version                  : 1.1</span></td></tr>
+<tr name="7" id="7">
+<td>7</td><td><span class="ct"> * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016</span></td></tr>
+<tr name="8" id="8">
+<td>8</td><td><span class="ct"> * C/C++ source code generated on : Sun Feb 02 10:01:47 2020</span></td></tr>
+<tr name="9" id="9">
+<td>9</td><td><span class="ct"> *</span></td></tr>
+<tr name="10" id="10">
+<td>10</td><td><span class="ct"> * Target selection: ert.tlc</span></td></tr>
+<tr name="11" id="11">
+<td>11</td><td><span class="ct"> * Embedded hardware selection: Atmel-&gt;AVR</span></td></tr>
+<tr name="12" id="12">
+<td>12</td><td><span class="ct"> * Code generation objectives: Unspecified</span></td></tr>
+<tr name="13" id="13">
+<td>13</td><td><span class="ct"> * Validation result: Not run</span></td></tr>
+<tr name="14" id="14">
+<td>14</td><td><span class="ct"> */</span></td></tr>
+<tr name="15" id="15">
+<td>15</td><td></td></tr>
+<tr name="16" id="16">
+<td>16</td><td><span class="pp">#include "untitled.h"</span></td></tr>
+<tr name="17" id="17">
+<td>17</td><td><span class="pp">#include "rtwtypes.h"</span></td></tr>
+<tr name="18" id="18">
+<td>18</td><td></td></tr>
+<tr name="19" id="19">
+<td>19</td><td><span class="kw">volatile</span> <span class="kw">int</span> <a id="19c14" class="tk">IsrOverrun</a> = 0;</td></tr>
+<tr name="20" id="20">
+<td>20</td><td><span class="kw">static</span> <a id="20c8" class="tk">boolean_T</a> <a id="20c18" class="tk">OverrunFlag</a> = 0;</td></tr>
+<tr name="21" id="21">
+<td>21</td><td><span class="kw">void</span> <a id="21c6" class="tk">rt_OneStep</a>(<span class="kw">void</span>)</td></tr>
+<tr name="22" id="22">
+<td>22</td><td><span class="br">{</span></td></tr>
+<tr name="23" id="23">
+<td>23</td><td>  <span class="ct">/* Check for overrun. Protect OverrunFlag against preemption */</span></td></tr>
+<tr name="24" id="24">
+<td>24</td><td>  <span class="kw">if</span> (<a id="24c7" class="tk">OverrunFlag</a><a id="24c18" class="tk">++</a>) <span class="br">{</span></td></tr>
+<tr name="25" id="25">
+<td>25</td><td>    <a id="25c5" class="tk">IsrOverrun</a> = 1;</td></tr>
+<tr name="26" id="26">
+<td>26</td><td>    <a id="26c5" class="tk">OverrunFlag</a><a id="26c16" class="tk">--</a>;</td></tr>
+<tr name="27" id="27">
+<td>27</td><td>    <span class="kw">return</span>;</td></tr>
+<tr name="28" id="28">
+<td>28</td><td>  <span class="br">}</span></td></tr>
+<tr name="29" id="29">
+<td>29</td><td></td></tr>
+<tr name="30" id="30">
+<td>30</td><td><span class="pp">#ifndef</span> <a id="30c9" class="tk">_MW_ARDUINO_LOOP_</a></td></tr>
+<tr name="31" id="31">
+<td>31</td><td></td></tr>
+<tr name="32" id="32">
+<td>32</td><td>  <a id="32c3" class="tk">sei</a>();</td></tr>
+<tr name="33" id="33">
+<td>33</td><td></td></tr>
+<tr name="34" id="34">
+<td>34</td><td><span class="pp">#endif</span>;</td></tr>
+<tr name="35" id="35">
+<td>35</td><td></td></tr>
+<tr name="36" id="36">
+<td>36</td><td>  <a id="36c3" class="tk">untitled_step</a>();</td></tr>
+<tr name="37" id="37">
+<td>37</td><td></td></tr>
+<tr name="38" id="38">
+<td>38</td><td>  <span class="ct">/* Get model outputs here */</span></td></tr>
+<tr name="39" id="39">
+<td>39</td><td><span class="pp">#ifndef</span> <a id="39c9" class="tk">_MW_ARDUINO_LOOP_</a></td></tr>
+<tr name="40" id="40">
+<td>40</td><td></td></tr>
+<tr name="41" id="41">
+<td>41</td><td>  <a id="41c3" class="tk">cli</a>();</td></tr>
+<tr name="42" id="42">
+<td>42</td><td></td></tr>
+<tr name="43" id="43">
+<td>43</td><td><span class="pp">#endif</span>;</td></tr>
+<tr name="44" id="44">
+<td>44</td><td></td></tr>
+<tr name="45" id="45">
+<td>45</td><td>  <a id="45c3" class="tk">OverrunFlag</a><a id="45c14" class="tk">--</a>;</td></tr>
+<tr name="46" id="46">
+<td>46</td><td><span class="br">}</span></td></tr>
+<tr name="47" id="47">
+<td>47</td><td></td></tr>
+<tr name="48" id="48">
+<td>48</td><td><span class="kw">int</span> <a id="48c5" class="tk">main</a>(<span class="kw">void</span>)</td></tr>
+<tr name="49" id="49">
+<td>49</td><td><span class="br">{</span></td></tr>
+<tr name="50" id="50">
+<td>50</td><td>  <span class="kw">volatile</span> <a id="50c12" class="tk">boolean_T</a> <a id="50c22" class="tk">runModel</a> = 1;</td></tr>
+<tr name="51" id="51">
+<td>51</td><td>  <span class="kw">float</span> <a id="51c9" class="tk">modelBaseRate</a> = 1.0;</td></tr>
+<tr name="52" id="52">
+<td>52</td><td>  <span class="kw">float</span> <a id="52c9" class="tk">systemClock</a> = 0;</td></tr>
+<tr name="53" id="53">
+<td>53</td><td>  <a id="53c3" class="tk">init</a>();</td></tr>
+<tr name="54" id="54">
+<td>54</td><td>  <a id="54c3" class="tk">MW_Arduino_Init</a>();</td></tr>
+<tr name="55" id="55">
+<td>55</td><td>  <a id="55c3" class="tk">rtmSetErrorStatus</a>(<a id="55c21" class="tk">untitled_M</a>, 0);</td></tr>
+<tr name="56" id="56">
+<td>56</td><td>  <a id="56c3" class="tk">untitled_initialize</a>();</td></tr>
+<tr name="57" id="57">
+<td>57</td><td>  <a id="57c3" class="tk">configureArduinoAVRTimer</a>();</td></tr>
+<tr name="58" id="58">
+<td>58</td><td>  <a id="58c3" class="tk">runModel</a> =</td></tr>
+<tr name="59" id="59">
+<td>59</td><td>    <a id="59c5" class="tk">rtmGetErrorStatus</a>(<a id="59c23" class="tk">untitled_M</a>) <a id="59c35" class="tk">==</a> (<a id="59c39" class="tk">NULL</a>);</td></tr>
+<tr name="60" id="60">
+<td>60</td><td></td></tr>
+<tr name="61" id="61">
+<td>61</td><td><span class="pp">#ifndef</span> <a id="61c9" class="tk">_MW_ARDUINO_LOOP_</a></td></tr>
+<tr name="62" id="62">
+<td>62</td><td></td></tr>
+<tr name="63" id="63">
+<td>63</td><td>  <a id="63c3" class="tk">sei</a>();</td></tr>
+<tr name="64" id="64">
+<td>64</td><td></td></tr>
+<tr name="65" id="65">
+<td>65</td><td><span class="pp">#endif</span>;</td></tr>
+<tr name="66" id="66">
+<td>66</td><td></td></tr>
+<tr name="67" id="67">
+<td>67</td><td>  <a id="67c3" class="tk">sei</a> ();</td></tr>
+<tr name="68" id="68">
+<td>68</td><td>  <span class="kw">while</span> (<a id="68c10" class="tk">runModel</a>) <span class="br">{</span></td></tr>
+<tr name="69" id="69">
+<td>69</td><td>    <a id="69c5" class="tk">runModel</a> =</td></tr>
+<tr name="70" id="70">
+<td>70</td><td>      <a id="70c7" class="tk">rtmGetErrorStatus</a>(<a id="70c25" class="tk">untitled_M</a>) <a id="70c37" class="tk">==</a> (<a id="70c41" class="tk">NULL</a>);</td></tr>
+<tr name="71" id="71">
+<td>71</td><td>    <a id="71c5" class="tk">runModel</a> = <a id="71c16" class="tk">runModel</a> <a id="71c25" class="tk">&amp;&amp;</a> <a id="71c28" class="tk">MW_Arduino_Loop</a>();</td></tr>
+<tr name="72" id="72">
+<td>72</td><td>  <span class="br">}</span></td></tr>
+<tr name="73" id="73">
+<td>73</td><td></td></tr>
+<tr name="74" id="74">
+<td>74</td><td>  <span class="ct">/* Disable rt_OneStep() here */</span></td></tr>
+<tr name="75" id="75">
+<td>75</td><td></td></tr>
+<tr name="76" id="76">
+<td>76</td><td>  <span class="ct">/* Terminate model */</span></td></tr>
+<tr name="77" id="77">
+<td>77</td><td>  <a id="77c3" class="tk">untitled_terminate</a>();</td></tr>
+<tr name="78" id="78">
+<td>78</td><td>  <a id="78c3" class="tk">cli</a>();</td></tr>
+<tr name="79" id="79">
+<td>79</td><td>  <span class="kw">return</span> 0;</td></tr>
+<tr name="80" id="80">
+<td>80</td><td><span class="br">}</span></td></tr>
+<tr name="81" id="81">
+<td>81</td><td></td></tr>
+<tr name="82" id="82">
+<td>82</td><td><span class="ct">/*</span></td></tr>
+<tr name="83" id="83">
+<td>83</td><td><span class="ct"> * File trailer for generated code.</span></td></tr>
+<tr name="84" id="84">
+<td>84</td><td><span class="ct"> *</span></td></tr>
+<tr name="85" id="85">
+<td>85</td><td><span class="ct"> * [EOF]</span></td></tr>
+<tr name="86" id="86">
+<td>86</td><td><span class="ct"> */</span></td></tr>
+<tr name="87" id="87">
+<td>87</td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

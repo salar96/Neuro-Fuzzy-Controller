@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td>1</td><td><span class="ct">/*</span></td></tr>
+<tr name="2" id="2">
+<td>2</td><td><span class="ct"> * File: untitled.c</span></td></tr>
+<tr name="3" id="3">
+<td>3</td><td><span class="ct"> *</span></td></tr>
+<tr name="4" id="4">
+<td>4</td><td><span class="ct"> * Code generated for Simulink model 'untitled'.</span></td></tr>
+<tr name="5" id="5">
+<td>5</td><td><span class="ct"> *</span></td></tr>
+<tr name="6" id="6">
+<td>6</td><td><span class="ct"> * Model version                  : 1.1</span></td></tr>
+<tr name="7" id="7">
+<td>7</td><td><span class="ct"> * Simulink Coder version         : 8.10 (R2016a) 10-Feb-2016</span></td></tr>
+<tr name="8" id="8">
+<td>8</td><td><span class="ct"> * C/C++ source code generated on : Sun Feb 02 10:01:47 2020</span></td></tr>
+<tr name="9" id="9">
+<td>9</td><td><span class="ct"> *</span></td></tr>
+<tr name="10" id="10">
+<td>10</td><td><span class="ct"> * Target selection: ert.tlc</span></td></tr>
+<tr name="11" id="11">
+<td>11</td><td><span class="ct"> * Embedded hardware selection: Atmel-&gt;AVR</span></td></tr>
+<tr name="12" id="12">
+<td>12</td><td><span class="ct"> * Code generation objectives: Unspecified</span></td></tr>
+<tr name="13" id="13">
+<td>13</td><td><span class="ct"> * Validation result: Not run</span></td></tr>
+<tr name="14" id="14">
+<td>14</td><td><span class="ct"> */</span></td></tr>
+<tr name="15" id="15">
+<td>15</td><td></td></tr>
+<tr name="16" id="16">
+<td>16</td><td><span class="pp">#include "untitled.h"</span></td></tr>
+<tr name="17" id="17">
+<td>17</td><td><span class="pp">#include "untitled_private.h"</span></td></tr>
+<tr name="18" id="18">
+<td>18</td><td></td></tr>
+<tr name="19" id="19">
+<td>19</td><td><span class="ct">/* Real-time model */</span></td></tr>
+<tr name="20" id="20">
+<td>20</td><td><a id="20c1" class="tk">RT_MODEL_untitled_T</a> <a id="20c21" class="tk">untitled_M_</a>;</td></tr>
+<tr name="21" id="21">
+<td>21</td><td><a id="21c1" class="tk">RT_MODEL_untitled_T</a> <a id="21c21" class="tk">*</a><span class="kw">const</span> <a id="21c28" class="tk">untitled_M</a> = <a id="21c41" class="tk">&amp;</a><a id="21c42" class="tk">untitled_M_</a>;</td></tr>
+<tr name="22" id="22">
+<td>22</td><td></td></tr>
+<tr name="23" id="23">
+<td>23</td><td><span class="ct">/* Model step function */</span></td></tr>
+<tr name="24" id="24">
+<td>24</td><td><span class="kw">void</span> <a id="24c6" class="tk">untitled_step</a>(<span class="kw">void</span>)</td></tr>
+<tr name="25" id="25">
+<td>25</td><td><span class="br">{</span></td></tr>
+<tr name="26" id="26">
+<td>26</td><td>  <span class="ct">/* S-Function (arduinoanaloginput_sfcn): '<a class="ct blk" blk_line="26">&lt;Root&gt;/Analog Input</a>' */</span></td></tr>
+<tr name="27" id="27">
+<td>27</td><td>  <a id="27c3" class="tk">MW_analogRead</a>(<a id="27c17" class="tk">untitled_P</a>.<a id="27c28" class="tk">AnalogInput_p1</a>);</td></tr>
+<tr name="28" id="28">
+<td>28</td><td><span class="br">}</span></td></tr>
+<tr name="29" id="29">
+<td>29</td><td></td></tr>
+<tr name="30" id="30">
+<td>30</td><td><span class="ct">/* Model initialize function */</span></td></tr>
+<tr name="31" id="31">
+<td>31</td><td><span class="kw">void</span> <a id="31c6" class="tk">untitled_initialize</a>(<span class="kw">void</span>)</td></tr>
+<tr name="32" id="32">
+<td>32</td><td><span class="br">{</span></td></tr>
+<tr name="33" id="33">
+<td>33</td><td>  <span class="ct">/* Registration code */</span></td></tr>
+<tr name="34" id="34">
+<td>34</td><td></td></tr>
+<tr name="35" id="35">
+<td>35</td><td>  <span class="ct">/* initialize error status */</span></td></tr>
+<tr name="36" id="36">
+<td>36</td><td>  <a id="36c3" class="tk">rtmSetErrorStatus</a>(<a id="36c21" class="tk">untitled_M</a>, (<a id="36c34" class="tk">NULL</a>));</td></tr>
+<tr name="37" id="37">
+<td>37</td><td></td></tr>
+<tr name="38" id="38">
+<td>38</td><td>  <span class="ct">/* Start for S-Function (arduinoanaloginput_sfcn): '<a class="ct blk" blk_line="38">&lt;Root&gt;/Analog Input</a>' */</span></td></tr>
+<tr name="39" id="39">
+<td>39</td><td>  <a id="39c3" class="tk">MW_pinModeAnalogInput</a>(<a id="39c25" class="tk">untitled_P</a>.<a id="39c36" class="tk">AnalogInput_p1</a>);</td></tr>
+<tr name="40" id="40">
+<td>40</td><td><span class="br">}</span></td></tr>
+<tr name="41" id="41">
+<td>41</td><td></td></tr>
+<tr name="42" id="42">
+<td>42</td><td><span class="ct">/* Model terminate function */</span></td></tr>
+<tr name="43" id="43">
+<td>43</td><td><span class="kw">void</span> <a id="43c6" class="tk">untitled_terminate</a>(<span class="kw">void</span>)</td></tr>
+<tr name="44" id="44">
+<td>44</td><td><span class="br">{</span></td></tr>
+<tr name="45" id="45">
+<td>45</td><td>  <span class="ct">/* (no terminate code required) */</span></td></tr>
+<tr name="46" id="46">
+<td>46</td><td><span class="br">}</span></td></tr>
+<tr name="47" id="47">
+<td>47</td><td></td></tr>
+<tr name="48" id="48">
+<td>48</td><td><span class="ct">/*</span></td></tr>
+<tr name="49" id="49">
+<td>49</td><td><span class="ct"> * File trailer for generated code.</span></td></tr>
+<tr name="50" id="50">
+<td>50</td><td><span class="ct"> *</span></td></tr>
+<tr name="51" id="51">
+<td>51</td><td><span class="ct"> * [EOF]</span></td></tr>
+<tr name="52" id="52">
+<td>52</td><td><span class="ct"> */</span></td></tr>
+<tr name="53" id="53">
+<td>53</td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>
